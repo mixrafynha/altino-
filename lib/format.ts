@@ -1,8 +1,12 @@
-export function formatPrice(value: number, currency = "EUR") {
+export function money(value: number, currency = "EUR") {
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency,
   }).format(value);
+}
+
+export function formatPrice(value: number, currency = "EUR") {
+  return money(value, currency);
 }
 
 export function formatDate(value: string | Date) {
