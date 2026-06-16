@@ -1,0 +1,2 @@
+import { NextResponse } from "next/server";import crypto from "crypto";
+export async function POST(){const timestamp=Math.round(Date.now()/1000);const folder="altino-construcoes/chantiers";const apiSecret=process.env.CLOUDINARY_API_SECRET||"";const signature=crypto.createHash("sha1").update(`folder=${folder}&timestamp=${timestamp}${apiSecret}`).digest("hex");return NextResponse.json({timestamp,folder,signature,cloudName:process.env.CLOUDINARY_CLOUD_NAME,apiKey:process.env.CLOUDINARY_API_KEY})}

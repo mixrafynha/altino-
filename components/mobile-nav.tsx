@@ -1,0 +1,3 @@
+import Link from "next/link";import { Home, Hammer, Palette, ClipboardList, User } from "lucide-react";
+const items=[['/','Home',Home],['/shop','Services',Hammer],['/designer','Devis',Palette],['/orders','Suivi',ClipboardList],['/account','Compte',User]] as const;
+export function MobileNav(){return <nav className="fixed inset-x-3 bottom-3 z-50 grid grid-cols-5 rounded-[28px] border border-[#D59B45]/20 bg-[#FFFCF7]/92 p-2 shadow-2xl backdrop-blur-xl md:hidden">{items.map(([href,label,Icon])=><Link key={href} href={href} className="flex flex-col items-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-semibold text-[#23262B]/70"><Icon size={18}/><span>{label}</span></Link>)}</nav>}
